@@ -1,38 +1,122 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@100;400&family=Epilogue:wght@600&family=Space+Mono&display=swap');
+
+body {
+  font-family: 'Epilogue', sans-serif;
+}
+.container {
+  display: flex;
+  justify-content: center;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  align-items: center;
+  width: 60%;
+  font-family: 'Gloria Hallelujah', cursive;
+}
+
+.title {
+  font-size: 1.4em;
+  font-family: 'Gloria Hallelujah', cursive;
+  margin-top: 0;
+}
+
+.description, .price {
+  font-style: cursive;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.center {
   display: flex;
-  flex-direction: column;
+  justify-items: center;
+  margin: 0 auto;
   align-items: center;
+  -webkit-box-shadow:0px 1px 4px -4px black;
+  -moz-box-shadow:0px 1px 4px -4px black;
+  box-shadow:0px 1px 4px -4px black;
+}
+
+.cards {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin: 0 auto;
+}
+
+.white-shadow {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+button {
+  width: 100%;
+  display: inline-block;
+  border-style: none;
+  padding: 1em;
+  background-color: black;
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 300;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+button:hover {
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.4);
+}
+img {
+  width: 80%;
+  margin-bottom: 0px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+ul, li { 
+  display:inline;
+  list-style: none;
+  margin-left: 1em;
+}
+
+a { 
+  color: inherit;
+  text-decoration: none;
+} 
+
+.wrapper {
+  width: 60%;
+  justify-content: center;
+  display: grid;
+  place-items: center;
+  grid-template-columns: auto auto auto;
+  gap: 2em;
+  
+}
+
+.card-item {
+  margin-top: 2em;
+
+}
+
+.card-details {
+  margin: 0;
+  padding: 0em 1em 1em 1em;
+  border: 2px;
+  border-color: gold;
+  border-style: dashed;
+  background: rgba(255,255,255, .5);
+}
+
+.menu-icon {
+  width: 30px;
+  height: 30px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: inline-block;
+  background-image: url('./img/cart_small.png');
+}
+.cart-icon {
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: inline-block;
+    background-image: url('./img/cart_small.png');
 }
