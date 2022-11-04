@@ -21,7 +21,7 @@ export const Item = ({ name, description, price, img, handleClick }) => {
                         <p className="description">{description}</p>
                         <p className="description">${price}</p>
                         <button
-                         onClick={handleClick}
+                         onClick={()=>{handleClick()}}
                          className="white-shadow">
                         ADD ME!
                         </button>
