@@ -1,7 +1,7 @@
 import "./App.css";
 import { CartItem } from "./CartItem";
 
-export const Cart = ({ items, itemsAmount, donutID }) => {
+export const Cart = ({ items, itemsAmount }) => {
   return (
     <div className="cart">
       <div className="center-cart">
@@ -14,7 +14,6 @@ export const Cart = ({ items, itemsAmount, donutID }) => {
               itemsAmount={itemsAmount}
               key={item.id}
               items={items}
-              donutID={donutID}
             />
           );
         })}
