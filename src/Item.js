@@ -1,6 +1,6 @@
 import "./App.css";
 
-export const Item = ({ name, description, price, img, addDonut }) => {
+export const Item = ({ name, description, price, img, addDonut, key }) => {
   //  console.log(img);
   return (
     <div>
@@ -10,7 +10,7 @@ export const Item = ({ name, description, price, img, addDonut }) => {
             <img
               src={process.env.PUBLIC_URL + img}
               alt={name}
-              className="white-shadow"
+              className="white-shadow2"
               height="150px"
               width="180px"
             ></img>

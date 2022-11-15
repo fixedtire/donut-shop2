@@ -17,16 +17,31 @@ const reducer = (state, action) => {
 }*/
 }
 
+let amountItems = [
+  { id: 1, amount: 0 },
+  { id: 2, amount: 0 },
+  { id: 3, amount: 0 },
+  { id: 4, amount: 0 },
+  { id: 5, amount: 0 },
+];
+
 function App() {
   /* const [ state, dispatch ] = useReducer(reducer, { items: donuts })
    */
   const [items, setItems] = useState([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [itemsAmount, setItemsAmount] = useState(amountItems);
+
   const addDonut = (donut) => {
     setItems((prev) => {
       return [...prev, donut];
     });
+    amountItems[donut.id].amount += 1;
+    console.log(itemsAmount);
+    console.log(itemsAmount[3].amount);
   };
+
+  console.log(items);
 
   return (
     <div>
@@ -38,7 +53,7 @@ function App() {
       />
 
       {/* <Menu /> */}
-      {isCartOpen && <Cart items={items} />}
+      {isCartOpen && <Cart items={items} itemsAmount={itemsAmount} />}
       {/* ITEMS--- */}
 
       <div className="cards">

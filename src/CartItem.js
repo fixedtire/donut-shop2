@@ -1,9 +1,11 @@
 import React from "react";
 
-export const CartItem = ({ item }) => {
+export const CartItem = ({ item, itemsAmount }) => {
   return (
     <div className="cart-item">
-      <h4>{item.name}</h4>
+      <h4>
+        {itemsAmount[item.id].amount}x {item.name}
+      </h4>
     </div>
   );
 };
