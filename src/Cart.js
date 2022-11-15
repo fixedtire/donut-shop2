@@ -12,7 +12,6 @@ export const Cart = ({ items, itemsAmount }) => {
               key={item.id}
               item={item}
               itemsAmount={itemsAmount}
-              key={item.id}
               items={items}
             />
           );

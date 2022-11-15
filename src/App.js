@@ -33,15 +33,19 @@ function App() {
   const [itemsAmount, setItemsAmount] = useState(amountItems);
 
   const addDonut = (donut) => {
-    setItems((prev) => {
-      return [...prev, donut];
-    });
+    for (let i = 0; i < items.length; i++) {
+      if (donut.id === items[i].id) {
+        return;
+      } else {
+        setItems((prev) => {
+          return [...prev, donut];
+        });
+      }
+    }
     amountItems[donut.id].amount += 1;
     console.log(itemsAmount);
     console.log(itemsAmount[3].amount);
   };
-
-  console.log(items);
 
   return (
     <div>
@@ -53,7 +57,7 @@ function App() {
       />
 
       {/* <Menu /> */}
-      {isCartOpen && <Cart items={items} itemsAmount={itemsAmount} />}
+      {isCartOpen && <Cart items={items} />}
       {/* ITEMS--- */}
 
       <div className="cards">
