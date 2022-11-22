@@ -3,10 +3,9 @@ import { Item } from "./Item";
 import { Navbar } from "./Navbar";
 import { Cart } from "./Cart";
 import { donuts } from "./Donuts.js";
-import { useState, useReducer } from "react";
+import { useState } from "react";
 
-{
-  /*
+/*
 const reducer = (state, action) => {
   switch (action.type) {
       case: 'increment'
@@ -15,7 +14,6 @@ const reducer = (state, action) => {
       throw new Error();
   }
 }*/
-}
 
 let amountItems = [
   { id: 1, amount: 0 },
@@ -33,20 +31,22 @@ function App() {
   const [itemsAmount, setItemsAmount] = useState(amountItems);
 
   const addDonut = (donut) => {
-    for (let i = 0; i < items.length; i++) {
-      if (donut.id === items[i].id) {
-        return;
-      } else {
-        setItems((prev) => {
-          return [...prev, donut];
-        });
-      }
+    let check = items.filter((el) => {
+      return el.id === donut.id;
+    });
+    if (check === donut.id) {
+      amountItems[donut.id].amount += 1;
+      setItemsAmount(...amountItems);
+    } else if (check === undefined) {
+      setItems((prev) => {
+        return [...prev, donut];
+      });
+      amountItems[donut.id].amount += 1;
+      setItemsAmount(...amountItems);
     }
-    amountItems[donut.id].amount += 1;
+    console.log(items);
     console.log(itemsAmount);
-    console.log(itemsAmount[3].amount);
   };
-
   return (
     <div>
       {/* NAVBAR--- */}
@@ -66,6 +66,7 @@ function App() {
             return (
               <Item
                 key={donut.id}
+                id={donut.id}
                 name={donut.name}
                 price={donut.price}
                 description={donut.description}

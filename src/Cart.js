@@ -8,12 +8,7 @@ export const Cart = ({ items, itemsAmount }) => {
         <h1>you choose:</h1>
         {items.map((item, index) => {
           return (
-            <CartItem
-              key={item.id}
-              item={item}
-              itemsAmount={itemsAmount}
-              items={items}
-            />
+            <CartItem item={item} itemsAmount={itemsAmount} items={items} />
           );
         })}
       </div>

@@ -1,6 +1,6 @@
 import "./App.css";
 
-export const Item = ({ name, description, price, img, addDonut, key }) => {
+export const Item = ({ name, description, price, img, addDonut }) => {
   //  console.log(img);
   return (
     <div>
