@@ -15,49 +15,46 @@ const reducer = (state, action) => {
   }
 }*/
 
-let amountItems = [
-  { id: 1, amount: 0 },
-  { id: 2, amount: 0 },
-  { id: 3, amount: 0 },
-  { id: 4, amount: 0 },
-  { id: 5, amount: 0 },
-];
-
 function App() {
   /* const [ state, dispatch ] = useReducer(reducer, { items: donuts })
    */
-  const [items, setItems] = useState([]);
+  const [items, setItems] = useState(donuts);
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const [itemsAmount, setItemsAmount] = useState(amountItems);
 
-  const addDonut = (donut) => {
-    let check = items.filter((el) => {
-      return el.id === donut.id;
+  const addDonut = (donutid) => {
+    let updatedItems = items.map((donut) => {
+      if (donutid === donut.id) {
+        donut.amount += 1;
+        return donut;
+      } else {
+        return donut;
+      }
     });
-    if (check === donut.id) {
-      amountItems[donut.id].amount += 1;
-      setItemsAmount(...amountItems);
-    } else if (check === undefined) {
-      setItems((prev) => {
-        return [...prev, donut];
-      });
-      amountItems[donut.id].amount += 1;
-      setItemsAmount(...amountItems);
-    }
-    console.log(items);
-    console.log(itemsAmount);
+    setItems(updatedItems);
   };
+
+  const removeDonut = () => {
+    console.log(items);
+  };
+
+  const filteredCartItems = items.filter((el) => el.amount > 0);
+  let quantityItems = items.reduce((acc, donut) => {
+    return acc + donut.amount;
+  }, 0);
+
   return (
     <div>
       {/* NAVBAR--- */}
       <Navbar
         title="Big-O-Shop"
-        itemsLength={items.length}
+        quantityItems={quantityItems}
         setIsCartOpen={setIsCartOpen}
       />
 
       {/* <Menu /> */}
-      {isCartOpen && <Cart items={items} />}
+      {isCartOpen && (
+        <Cart items={filteredCartItems} removeDonut={() => removeDonut()} />
+      )}
       {/* ITEMS--- */}
 
       <div className="cards">
@@ -71,7 +68,7 @@ function App() {
                 price={donut.price}
                 description={donut.description}
                 img={donut.img}
-                addDonut={() => addDonut(donut)}
+                addDonut={() => addDonut(donut.id)}
               />
             );
           })}

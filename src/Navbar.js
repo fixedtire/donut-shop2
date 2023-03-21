@@ -1,6 +1,6 @@
 import "./App.css";
 
-export const Navbar = ({ title, itemsLength, setIsCartOpen }) => {
+export const Navbar = ({ title, quantityItems, setIsCartOpen }) => {
   return (
     <div class="center">
       <div class="header">
@@ -20,7 +20,7 @@ export const Navbar = ({ title, itemsLength, setIsCartOpen }) => {
             className="cart-icon"
             onClick={() => setIsCartOpen((prevState) => !prevState)}
           ></i>
-          <span className="cart-value">{itemsLength}</span>
+          <span className="cart-value">{quantityItems}</span>
         </div>
       </div>
     </div>
