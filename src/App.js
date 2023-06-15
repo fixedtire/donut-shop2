@@ -53,7 +53,11 @@ function App() {
 
       {/* <Menu /> */}
       {isCartOpen && (
-        <Cart items={filteredCartItems} removeDonut={() => removeDonut()} />
+        <Cart
+          items={filteredCartItems}
+          removeDonut={() => removeDonut()}
+          quantityItems={quantityItems}
+        />
       )}
       {/* ITEMS--- */}
 

@@ -1,6 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Albert+Sans:wght@100;400&family=Epilogue:wght@600&family=Space+Mono&display=swap');
 
+@media (max-width: 480px) {
+  .header-title {
+    margin-right: auto;
+  }
+
+  .cart-icon-wrapper {
+    margin-left: auto;
+  }
+
+  .cart {
+    display: flex !important;
+    justify-content: flex-start !important;
+  }
+
+  .center-cart {
+    display: inline-block;
+    margin: auto !important;
+    position: relative !important;
+    grid-column: auto;
+    font-size: 1em;
+  }
+
+  .cards {
+  flex-wrap: 50% !important;
+  }
+
+}
+
+
+
+
 body {
   font-family: 'Epilogue', sans-serif;
 }
@@ -15,7 +46,6 @@ body {
   align-items: center;
   width: 60%;
   font-family: 'Gloria Hallelujah', cursive;
-
 }
 
 .title {
@@ -69,6 +99,21 @@ body {
 }
 
 button:hover {
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.4);
+}
+
+.cart-button {
+  vertical-align: text-bottom !important;
+  cursor: pointer;
+  height: 25%;
+  border-style: none;
+  background-color: black;
+  font-family: 'Epilogue', sans-serif;
+  font-weight: 300;
+  color: white;
+}
+
+.cart-button:hover {
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.4);
 }
 img {
@@ -178,6 +223,7 @@ a {
 }
 
 .item-qty {
+  height: 50%;
   background-color: black;
   padding: 1em;
   font-family: 'Epilogue', sans-serif;

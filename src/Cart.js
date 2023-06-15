@@ -1,7 +1,7 @@
 import "./App.css";
 import { CartItem } from "./CartItem";
 
-export const Cart = ({ items, itemsAmount, removeDonut }) => {
+export const Cart = ({ items, itemsAmount, removeDonut, quantityItems }) => {
   const totalPrice = items.reduce(
     (acc, donut) => acc + donut.amount * donut.price,
     0
@@ -17,6 +17,7 @@ export const Cart = ({ items, itemsAmount, removeDonut }) => {
               itemsAmount={itemsAmount}
               items={items}
               removeDonut={removeDonut}
+              quantityItems={quantityItems}
             />
           );
         })}
