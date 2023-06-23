@@ -21,7 +21,7 @@ export const Cart = ({ items, itemsAmount, removeDonut, quantityItems }) => {
             />
           );
         })}
-        Total: <div>{totalPrice}$</div>
+        Total: <div>{totalPrice.toFixed(2)}$</div>
       </div>
     </div>
   );
