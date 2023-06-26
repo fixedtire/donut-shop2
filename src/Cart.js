@@ -1,7 +1,13 @@
 import "./App.css";
 import { CartItem } from "./CartItem";
 
-export const Cart = ({ items, itemsAmount, removeDonut, quantityItems }) => {
+export const Cart = ({
+  items,
+  itemsAmount,
+  removeDonut,
+  quantityItems,
+  setItems,
+}) => {
   const totalPrice = items.reduce(
     (acc, donut) => acc + donut.amount * donut.price,
     0
@@ -13,11 +19,13 @@ export const Cart = ({ items, itemsAmount, removeDonut, quantityItems }) => {
         {items.map((item, index) => {
           return (
             <CartItem
+              key={item.id}
               item={item}
               itemsAmount={itemsAmount}
               items={items}
               removeDonut={removeDonut}
               quantityItems={quantityItems}
+              setItems={setItems}
             />
           );
         })}

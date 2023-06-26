@@ -31,6 +31,8 @@ function App() {
       }
     });
     setItems(updatedItems);
+    console.log(items);
+    console.log(items.id);
   };
 
   const removeDonut = () => {
@@ -57,6 +59,7 @@ function App() {
           items={filteredCartItems}
           removeDonut={() => removeDonut()}
           quantityItems={quantityItems}
+          setItems={setItems}
         />
       )}
       {/* ITEMS--- */}
