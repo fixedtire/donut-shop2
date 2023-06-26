@@ -4,20 +4,12 @@ export const CartItem = ({ item, items, setItems }) => {
   let priceItem = item.amount * item.price;
 
   const removeItem = () => {
-    let arrayOnlyRemovedItem = items.map((el) => {
+    const updatedItems = items.map((el) => {
       if (el.id === item.id) {
         return { ...el, amount: 0 };
       }
       return el;
     });
-
-    let updatedItems = items.map((el) => {
-      if (el.id === item.id) {
-        return arrayOnlyRemovedItem[0];
-      }
-      return el;
-    });
-
     setItems(updatedItems);
     console.log(items);
     /*
