@@ -1,57 +1,71 @@
 import React from "react";
-// test
-export const CartItem = ({
-  key,
-  item,
-  items,
-  setItems,
-  removeDonut,
-  quantityItems,
-}) => {
+
+export const CartItem = ({ item, items, setItems }) => {
   let priceItem = item.amount * item.price;
 
-  const removeItem = (el) => {
-    console.log(items);
-    const updatedItems = items.filter((el) => el.id !== key);
+  const removeItem = () => {
+    let arrayOnlyRemovedItem = items.map((el) => {
+      if (el.id === item.id) {
+        return { ...el, amount: 0 };
+      }
+      return el;
+    });
+
+    let updatedItems = items.map((el) => {
+      if (el.id === item.id) {
+        return arrayOnlyRemovedItem[0];
+      }
+      return el;
+    });
+
     setItems(updatedItems);
     console.log(items);
-    //  console.log(items);
-    //   let index = items.findIndex((obj) => obj.id === item.id);
-    //    const itemsUpdated = items.filter((obj) => obj.id !== item.id);
-    // setItems(itemsUpdated);
-    //console.log(itemsUpdated);
-    //   quantityItems = itemsUpdated.reduce((acc, donut) => {
-    //      return acc + donut.amount;
-    //   }, 0);
-
-    // console.log(quantityItems);
-    // console.log(item);
+    /*
+    
+    
+    */
   };
 
   const minusItem = () => {
-    item.amount = item.amount - 1;
+    const updatedItems = items.map((el) => {
+      if (el.id === item.id) {
+        el.amount -= 1;
+        return el;
+      }
+      return el;
+    });
+    setItems(updatedItems);
+    console.log(items);
   };
 
   const plusItem = () => {
-    item.amount = item.amount + 1;
+    const updatedItems = items.map((el) => {
+      if (el.id === item.id) {
+        el.amount += 1;
+        return el;
+      }
+      return el;
+    });
+    setItems(updatedItems);
+    console.log(items);
   };
 
   return (
-    <div className="cart-item" key={key}>
+    <div className="cart-item">
       <h4>{item.name}</h4>
 
       <h4>{priceItem}$</h4>
 
       <h4 class="item-qty">{item.amount}</h4>
 
-      <button class="cart-button" onClick={removeDonut}>
+      <button class="cart-button" onClick={plusItem}>
         +
       </button>
       <button class="cart-button" onClick={minusItem}>
         -
       </button>
 
-      <button class="cart-button" onClick={() => removeItem(key)}>
+      <button class="cart-button" onClick={() => removeItem()}>
         x
       </button>
     </div>

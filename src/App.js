@@ -5,22 +5,14 @@ import { Cart } from "./Cart";
 import { donuts } from "./Donuts.js";
 import { useState } from "react";
 
-/*
-const reducer = (state, action) => {
-  switch (action.type) {
-      case: 'increment'
-      return { items: state.items}
-      default:
-      throw new Error();
-  }
-}*/
-
 function App() {
-  /* const [ state, dispatch ] = useReducer(reducer, { items: donuts })
-   */
+  // HOOK THAT CONTROLS STATE OF ITEMS (DONUTS)
   const [items, setItems] = useState(donuts);
+
+  // HOOK THAT CONTROLS STATE OF CART (BOOLEAN)
   const [isCartOpen, setIsCartOpen] = useState(false);
 
+  // FUNCTION THAT ADDS DONUT TO CART
   const addDonut = (donutid) => {
     let updatedItems = items.map((donut) => {
       if (donutid === donut.id) {
@@ -31,11 +23,6 @@ function App() {
       }
     });
     setItems(updatedItems);
-    console.log(items);
-    console.log(items.id);
-  };
-
-  const removeDonut = () => {
     console.log(items);
   };
 
@@ -57,7 +44,6 @@ function App() {
       {isCartOpen && (
         <Cart
           items={filteredCartItems}
-          removeDonut={() => removeDonut()}
           quantityItems={quantityItems}
           setItems={setItems}
         />
