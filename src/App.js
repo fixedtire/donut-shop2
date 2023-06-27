@@ -6,7 +6,7 @@ import { donuts } from "./Donuts.js";
 import { useState } from "react";
 
 function App() {
-  // HOOK THAT CONTROLS STATE OF ITEMS (DONUTS)
+  // HOOK THAT CONTROLS STATE OF DONUTS (ITEMS)
   const [items, setItems] = useState(donuts);
 
   // HOOK THAT CONTROLS STATE OF CART (BOOLEAN)
