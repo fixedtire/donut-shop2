@@ -4,42 +4,36 @@ export const CartItem = ({ item, items, setItems }) => {
   let priceItem = item.amount * item.price;
 
   const removeItem = () => {
-    setItems((prev) => {
+    return setItems((prev) =>
       prev.map((el) => {
         if (el.id === item.id) {
           return { ...el, amount: 0 };
         }
         return el;
-      });
-    });
-    /*
-    
-    
-    */
+      })
+    );
   };
 
   const minusItem = () => {
-    const updatedItems = items.map((el) => {
-      if (el.id === item.id) {
-        el.amount -= 1;
+    return setItems((prev) =>
+      prev.map((el) => {
+        if (el.id === item.id) {
+          return { ...el, amount: -1 };
+        }
         return el;
-      }
-      return el;
-    });
-    setItems(updatedItems);
-    console.log(items);
+      })
+    );
   };
 
   const plusItem = () => {
-    const updatedItems = items.map((el) => {
-      if (el.id === item.id) {
-        el.amount += 1;
+    return setItems((prev) =>
+      prev.map((el) => {
+        if (el.id === item.id) {
+          return { ...el, amount: +1 };
+        }
         return el;
-      }
-      return el;
-    });
-    setItems(updatedItems);
-    console.log(items);
+      })
+    );
   };
 
   return (
