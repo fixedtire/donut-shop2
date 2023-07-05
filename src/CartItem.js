@@ -18,7 +18,7 @@ export const CartItem = ({ item, items, setItems }) => {
     return setItems((prev) =>
       prev.map((el) => {
         if (el.id === item.id) {
-          return { ...el, amount: -1 };
+          return { ...el, amount: item.amount - 1 };
         }
         return el;
       })
@@ -29,7 +29,7 @@ export const CartItem = ({ item, items, setItems }) => {
     return setItems((prev) =>
       prev.map((el) => {
         if (el.id === item.id) {
-          return { ...el, amount: +1 };
+          return { ...el, amount: item.amount + 1 };
         }
         return el;
       })
@@ -44,10 +44,10 @@ export const CartItem = ({ item, items, setItems }) => {
 
       <h4 class="item-qty">{item.amount}</h4>
 
-      <button class="cart-button" onClick={plusItem}>
+      <button class="cart-button" onClick={() => plusItem()}>
         +
       </button>
-      <button class="cart-button" onClick={minusItem}>
+      <button class="cart-button" onClick={() => minusItem()}>
         -
       </button>
 
